@@ -5,7 +5,6 @@ import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxPoint;
 import flixel.util.FlxDestroyUtil;
 import mobile.flixel.FlxHitbox;
-import mobile.flixel.FlxHidden;
 import mobile.flixel.FlxVirtualPad;
 
 /**
@@ -18,7 +17,6 @@ class MobileControls extends FlxSpriteGroup
 
 	public var virtualPad:FlxVirtualPad;
 	public var hitbox:FlxHitbox;
-	public var hidden:FlxHidden;
 
 	public function new()
 	{
@@ -41,9 +39,6 @@ class MobileControls extends FlxSpriteGroup
 			case 'Hitbox':
 				hitbox = new FlxHitbox();
 				add(hitbox);
-			case 'Hidden':
-				hidden = new FlxHidden();
-				add(hidden);
 			case 'Keyboard': // do nothing
 		}
 	}
@@ -62,12 +57,6 @@ class MobileControls extends FlxSpriteGroup
 		{
 			hitbox = FlxDestroyUtil.destroy(hitbox);
 			hitbox = null;
-		}
-		
-		if (hidden != null)
-		{
-			hidden = FlxDestroyUtil.destroy(hidden);
-			hidden = null;
 		}
 	}
 

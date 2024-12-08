@@ -12,17 +12,15 @@ import flixel.util.FlxColor;
 import flixel.util.FlxSave;
 import mobile.flixel.FlxButton;
 import mobile.flixel.FlxHitbox;
-import mobile.flixel.FlxHidden;
 import mobile.flixel.FlxVirtualPad;
 import openfl.utils.Assets;
 
 class MobileControlsSubState extends FlxSubState
 {
-	private final controlsItems:Array<String> = ['Pad-Right', 'Pad-Left', 'Pad-Custom', 'Pad-Duo', 'Hitbox', 'Hidden', 'Keyboard'];
+	private final controlsItems:Array<String> = ['Pad-Right', 'Pad-Left', 'Pad-Custom', 'Pad-Duo', 'Hitbox', 'Keyboard'];
 
 	private var virtualPad:FlxVirtualPad;
 	private var hitbox:FlxHitbox;
-	private var hidden:FlxHidden;
 	private var upPosition:FlxText;
 	private var downPosition:FlxText;
 	private var leftPosition:FlxText;
@@ -254,22 +252,15 @@ class MobileControlsSubState extends FlxSubState
 				removeControls();
 				hitbox = new FlxHitbox();
 				add(hitbox);
-			case 'Hidden':
-				removeControls();
-				hidden = new FlxHidden();
-				add(hidden);
 			default:
 				removeControls();
 		}
 
 		if (virtualPad != null)
-			virtualPad.visible = (daChoice != 'Hitbox' && daChoice != 'Hidden' && daChoice != 'Keyboard');
+			virtualPad.visible = (daChoice != 'Hitbox' && daChoice != 'Keyboard');
 
 		if (hitbox != null)
 			hitbox.visible = (daChoice == 'Hitbox');
-			
-		if (hidden != null)
-			hidden.visible = (daChoice == 'Hidden');
 	}
 
 	private function removeControls():Void
@@ -279,8 +270,5 @@ class MobileControlsSubState extends FlxSubState
 
 		if (hitbox != null)
 			remove(hitbox);
-			
-		if (hidden != null)
-			remove(hidden);
 	}
 }
