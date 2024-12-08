@@ -263,13 +263,13 @@ class MobileControlsSubState extends FlxSubState
 		}
 
 		if (virtualPad != null)
-			virtualPad.visible = (daChoice != 'Hitbox' && 'Hidden' && daChoice != 'Keyboard');
+			virtualPad.visible = (daChoice != 'Hitbox' && daChoice != 'Hidden' && daChoice != 'Keyboard');
 
 		if (hitbox != null)
-			hitbox.visible = (daChoice == 'Hitbox');
+			hitbox.visible = (daChoice != 'Hidden' && daChoice == 'Hitbox');
 			
 		if (hidden != null)
-			hidden.visible = (daChoice == 'Hidden');
+			hidden.visible = (daChoice != 'Hitbox' && daChoice == 'Hidden');
 	}
 
 	private function removeControls():Void
