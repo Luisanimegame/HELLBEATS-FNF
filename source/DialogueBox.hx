@@ -220,7 +220,7 @@ class DialogueBox extends FlxSpriteGroup
 
 		dropText.text = swagDialogue.text;
 
-		if(FlxG.keys.justPressed.Z && !isEnding){
+		if(FlxG.keys.justPressed.Z #if android || FlxG.android.justReleased.BACK #end && !isEnding){
 			isEnding = true;
 			FlxG.sound.music.fadeOut(2.2, 0);
 
