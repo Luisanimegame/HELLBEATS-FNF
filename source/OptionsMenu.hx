@@ -38,7 +38,7 @@ class OptionsMenu extends MusicBeatState
 			#if !mobile
 			new ResetButtonOption("Toggle pressing R to gameover."),
 			// new OffsetMenu("Get a note offset based off of your inputs!"),
-			#enf
+			#end
 			new CustomizeGameplay("Drag'n'Drop Gameplay Modules around to your preference")
 		]),
 		new OptionCategory("Appearance", [
