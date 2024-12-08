@@ -211,12 +211,10 @@ class OptionsMenu extends MusicBeatState
 			if (controls.RESET)
 					FlxG.save.data.offset = 0;
 					
-			#if android
+			#if mobile
 			if (virtualPad.buttonC.justPressed) {
-			#if android
-			removeVirtualPad();
-			#end
-			openSubState(new android.AndroidControlsSubState());
+			  removeVirtualPad();
+			  openSubState(new mobile.MobileControlsSubState());
 			}
 			#end
 
