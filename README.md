@@ -11,5 +11,5 @@ This game was made with love to Newgrounds and its community. Extra love to Tom 
 
 
 ### Another Credits
-- [GaboWuz](https://youtube.com/@gabewuzx?si=M8c-Q3qVibr4CtAk) - Video Code
+- [GaboWuz](https://youtube.com/@gabewuzx?si=M8c-Q3qVibr4CtAk) - Silly Porter
 - [Mubilop](https://x.com/mubilop) - Upload Source Code
