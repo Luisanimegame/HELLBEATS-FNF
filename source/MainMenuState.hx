@@ -130,6 +130,10 @@ class MainMenuState extends MusicBeatState
 			controls.setKeyboardScheme(KeyboardScheme.Duo(true), true);
 
 		changeItem();
+		
+		#if mobile
+        addVirtualPad(UP_DOWN, A_B);
+        #end
 
 		super.create();
 	}
@@ -145,29 +149,13 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin)
 		{
-			var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
-
-			if (gamepad != null)
-			{
-				if (gamepad.justPressed.DPAD_UP)
-				{
-					FlxG.sound.play(Paths.sound('scrollMenu'));
-					changeItem(-1);
-				}
-				if (gamepad.justPressed.DPAD_DOWN)
-				{
-					FlxG.sound.play(Paths.sound('scrollMenu'));
-					changeItem(1);
-				}
-			}
-
-			if (FlxG.keys.justPressed.UP)
+			if (controls.UP_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(-1);
 			}
 
-			if (FlxG.keys.justPressed.DOWN)
+			if (controls.DOWN_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(1);

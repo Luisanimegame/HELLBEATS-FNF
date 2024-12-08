@@ -144,6 +144,10 @@ class FreeplayState extends MusicBeatState
 
 			trace(md);
 		 */
+		
+		#if mobile
+        addVirtualPad(LEFT_FULL, A_B);
+        #end
 
 		super.create();
 	}
@@ -185,31 +189,11 @@ class FreeplayState extends MusicBeatState
 		scoreText.text = "PERSONAL BEST:" + lerpScore;
 		comboText.text = combo + '\n';
 
-		var upP = FlxG.keys.justPressed.UP;
-		var downP = FlxG.keys.justPressed.DOWN;
+		var upP = controls.UP_P;
+		var downP = controls.DOWN_P;
 		var accepted = controls.ACCEPT;
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
-
-		if (gamepad != null)
-		{
-			if (gamepad.justPressed.DPAD_UP)
-			{
-				changeSelection(-1);
-			}
-			if (gamepad.justPressed.DPAD_DOWN)
-			{
-				changeSelection(1);
-			}
-			if (gamepad.justPressed.DPAD_LEFT)
-			{
-				changeDiff(-1);
-			}
-			if (gamepad.justPressed.DPAD_RIGHT)
-			{
-				changeDiff(1);
-			}
-		}
 
 		if (upP)
 		{
@@ -220,9 +204,9 @@ class FreeplayState extends MusicBeatState
 			changeSelection(1);
 		}
 
-		if (FlxG.keys.justPressed.LEFT)
+		if (controls.LEFT_P)
 			changeDiff(-1);
-		if (FlxG.keys.justPressed.RIGHT)
+		if (controls.RIGHT_P)
 			changeDiff(1);
 
 		if (controls.BACK)

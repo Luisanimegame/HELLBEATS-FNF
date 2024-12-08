@@ -53,19 +53,9 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
-		#if polymod
-		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
+		#if android
+		FlxG.android.preventDefaultKeys = [BACK];
 		#end
-		
-		#if sys
-		if (!sys.FileSystem.exists(Sys.getCwd() + "/assets/replays"))
-			sys.FileSystem.createDirectory(Sys.getCwd() + "/assets/replays");
-		#end
-
-		@:privateAccess
-		{
-			trace("Loaded " + openfl.Assets.getLibrary("default").assetsLoaded + " assets (DEFAULT)");
-		}
 		
 		PlayerSettings.init();
 
@@ -397,12 +387,12 @@ class TitleState extends MusicBeatState
 			// credTextShit.screenCenter();
 			case 5:
 				if (Main.watermarks)
-					createCoolText(['Kade Engine', 'by']);
+					createCoolText(['Port', 'by']);
 				else
 					createCoolText(['A Mod', 'created by']);
 			case 7:
 				if (Main.watermarks)
-					addMoreText('KadeDeveloper');
+					addMoreText('GaboWuz');
 				else
 				{
 					addMoreText('RevenantDude');
